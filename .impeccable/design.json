@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-08T00:00:00+05:45",
+  "title": "Design System: E-works",
+  "extensions": {
+    "colorMeta": {
+      "background": { "role": "neutral", "displayName": "Cool Cloud", "canonical": "oklch(0.9842 0.0034 247.8575)", "tonalRamp": ["oklch(0.15 0.0034 247.8575)", "oklch(0.25 0.0034 247.8575)", "oklch(0.38 0.0034 247.8575)", "oklch(0.52 0.0034 247.8575)", "oklch(0.66 0.0034 247.8575)", "oklch(0.78 0.0034 247.8575)", "oklch(0.89 0.0034 247.8575)", "oklch(0.9842 0.0034 247.8575)"] },
+      "signal-blue": { "role": "primary", "displayName": "Signal Blue", "canonical": "oklch(0.5568 0.1013 255.9080)", "tonalRamp": ["oklch(0.15 0.1013 255.9080)", "oklch(0.25 0.1013 255.9080)", "oklch(0.35 0.1013 255.9080)", "oklch(0.45 0.1013 255.9080)", "oklch(0.5568 0.1013 255.9080)", "oklch(0.68 0.1013 255.9080)", "oklch(0.82 0.1013 255.9080)", "oklch(0.95 0.1013 255.9080)"] },
+      "growth-lime": { "role": "secondary", "displayName": "Growth Lime", "canonical": "oklch(0.7610 0.1736 129.5770)", "tonalRamp": ["oklch(0.15 0.1736 129.5770)", "oklch(0.25 0.1736 129.5770)", "oklch(0.35 0.1736 129.5770)", "oklch(0.48 0.1736 129.5770)", "oklch(0.61 0.1736 129.5770)", "oklch(0.7610 0.1736 129.5770)", "oklch(0.86 0.1736 129.5770)", "oklch(0.95 0.1736 129.5770)"] },
+      "deep-navy": { "role": "neutral", "displayName": "Deep Navy", "canonical": "oklch(0.2077 0.0398 265.7549)", "tonalRamp": ["oklch(0.15 0.0398 265.7549)", "oklch(0.2077 0.0398 265.7549)", "oklch(0.32 0.0398 265.7549)", "oklch(0.45 0.0398 265.7549)", "oklch(0.58 0.0398 265.7549)", "oklch(0.70 0.0398 265.7549)", "oklch(0.83 0.0398 265.7549)", "oklch(0.95 0.0398 265.7549)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Host Grotesk Display", "purpose": "Bold hero and brand headlines." },
+      "body": { "displayName": "Inter Body", "purpose": "Readable navigation, descriptions, and functional content." }
+    },
+    "shadows": [
+      { "name": "soft-control-lift", "value": "0 2px 6px oklch(0.2077 0.0398 265.7549 / 0.07)", "purpose": "Low-key elevation for controls and small surfaces." },
+      { "name": "content-lift", "value": "0 8px 24px oklch(0.2077 0.0398 265.7549 / 0.09)", "purpose": "Separation for cards and content containers." },
+      { "name": "menu-lift", "value": "0 32px 80px oklch(0.2077 0.0398 265.7549 / 0.20)", "purpose": "Large elevated overlays such as the company mega menu." }
+    ],
+    "motion": [
+      { "name": "scene-crossfade", "value": "450ms ease-out", "purpose": "Crossfade between rotating hero scenes." },
+      { "name": "scene-enter", "value": "600ms cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Bring human imagery into the hero composition." },
+      { "name": "control-transition", "value": "200ms ease", "purpose": "Button, link, and focus state changes." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "640px" },
+      { "name": "desktop-nav", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Confident, rectangular primary action for conversion moments.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#demo\">GET A DEMO</a>",
+      "css": ".ds-btn-primary { display: inline-flex; height: 48px; align-items: center; justify-content: center; border: 1px solid oklch(0.5568 0.1013 255.9080); background: oklch(0.5568 0.1013 255.9080); color: white; padding: 0 28px; font: 600 15px/1.25 Inter, ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background 200ms ease, border-color 200ms ease, transform 200ms ease; } .ds-btn-primary:hover { background: oklch(0.4849 0.0859 256.7091); border-color: oklch(0.4849 0.0859 256.7091); transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid oklch(0.5568 0.1013 255.9080); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Transparent secondary action with a firm navy edge.",
+      "html": "<a class=\"ds-btn-outline\" href=\"#trial\">START FREE TRIAL</a>",
+      "css": ".ds-btn-outline { display: inline-flex; height: 48px; align-items: center; justify-content: center; border: 1px solid oklch(0.2077 0.0398 265.7549); background: transparent; color: oklch(0.2077 0.0398 265.7549); padding: 0 28px; font: 600 15px/1.25 Inter, ui-sans-serif, system-ui, sans-serif; text-decoration: none; transition: background 200ms ease, color 200ms ease, transform 200ms ease; } .ds-btn-outline:hover { background: oklch(0.2077 0.0398 265.7549); color: oklch(0.9842 0.0034 247.8575); transform: translateY(-1px); } .ds-btn-outline:focus-visible { outline: 2px solid oklch(0.5568 0.1013 255.9080); outline-offset: 2px; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Soft elevated content container on the cool canvas.",
+      "html": "<article class=\"ds-card\"><h3>Growth systems</h3><p>Technology and creative work aligned to the next opportunity.</p></article>",
+      "css": ".ds-card { background: oklch(1 0 0); color: oklch(0.2077 0.0398 265.7549); padding: 24px; border: 1px solid oklch(0.8690 0.0198 252.8943); border-radius: 16px; box-shadow: 0 8px 24px oklch(0.2077 0.0398 265.7549 / 0.09); } .ds-card h3 { margin: 0; font: 700 24px/0.95 \"Host Grotesk\", ui-sans-serif, system-ui, sans-serif; } .ds-card p { margin: 12px 0 0; color: oklch(0.5544 0.0407 257.4166); font: 400 16px/1.5 Inter, ui-sans-serif, system-ui, sans-serif; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Sticky, spacious navigation with a strong wordmark and action cluster.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-wordmark\" href=\"#top\">E-works</a><div class=\"ds-nav-links\"><a href=\"#platform\">Platform</a><a href=\"#solutions\">Solutions</a><a href=\"#demo\">Get A Demo</a></div></nav>",
+      "css": ".ds-nav { display: flex; height: 80px; align-items: center; justify-content: space-between; background: oklch(1 0 0); padding: 0 40px; color: oklch(0.2077 0.0398 265.7549); box-shadow: 0 2px 8px oklch(0.2077 0.0398 265.7549 / 0.08); } .ds-wordmark { color: oklch(0.5568 0.1013 255.9080); font: 700 39px/1 \"Host Grotesk\", ui-sans-serif, system-ui, sans-serif; text-decoration: none; } .ds-nav-links { display: flex; align-items: center; gap: 36px; font: 600 16px/1.25 Inter, ui-sans-serif, system-ui, sans-serif; } .ds-nav-links a { color: inherit; text-decoration: none; transition: color 200ms ease; } .ds-nav-links a:hover { color: oklch(0.5568 0.1013 255.9080); } .ds-nav-links a:focus-visible { outline: 2px solid oklch(0.5568 0.1013 255.9080); outline-offset: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Bold Digital Partner",
+    "overview": "E-works presents itself as a trustworthy partner with the confidence to make growth feel possible. The system combines a cool, operational foundation with clear blue action cues and a high-energy lime accent. Large Host Grotesk headlines and expressive geometric hero scenes give the company a point of view without sacrificing clarity.\n\nThe interface is spacious and direct. It uses strong hierarchy, crisp rectangular actions, soft layered depth for navigation and content surfaces, and restrained motion that makes transitions feel considered. The current system is designed to feel capable, collaborative, and tactile.",
+    "keyCharacteristics": ["Bold display typography paired with readable Inter body text.", "Cool cloud neutrals anchored by Signal Blue and Growth Lime.", "Flat, confident action controls with subtle lift on interaction.", "Geometric editorial hero artwork with human imagery.", "Responsive navigation that becomes a full-screen mobile menu."],
+    "rules": [
+      { "name": "The Focused Accent Rule", "body": "Blue and lime are signals, not wallpaper. Keep the cool neutral canvas dominant and reserve saturated color for action, emphasis, and hero composition.", "section": "colors" },
+      { "name": "The Short-Line Rule", "body": "Headlines should land quickly and confidently; use width, scale, and deliberate line breaks rather than dense paragraphs of display type.", "section": "typography" },
+      { "name": "The Soft-Layer Rule", "body": "Use shadow to clarify hierarchy, never to make every element look floated.", "section": "elevation" }
+    ],
+    "dos": ["Do use Host Grotesk for high-impact display moments and Inter for functional reading.", "Do keep Signal Blue and Growth Lime purposeful and easy to scan.", "Do preserve generous whitespace and clear action hierarchy.", "Do use tactile rectangular actions with visible keyboard focus.", "Do keep motion subtle, interruptible, and disabled or minimized for reduced-motion preferences."],
+    "donts": ["Don't replace the cool neutral foundation with an unrelated palette.", "Don't make every surface colorful, rounded, or heavily shadowed.", "Don't use generic display typography when a bold Host Grotesk hierarchy is appropriate.", "Don't remove the human, geometric, editorial quality of the hero in favor of generic stock-card layouts.", "Don't hide essential navigation or actions behind hover-only behavior on mobile or keyboard input."]
+  }
+}

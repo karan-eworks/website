@@ -1,0 +1,839 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "./hero.css";
+
+@theme {
+	--font-sans:
+		var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================
+   E-works DESIGN SYSTEM
+   Semantic Design Tokens
+   ========================================================= */
+
+:root {
+  /* =======================================================
+     CORE SURFACES
+     ======================================================= */
+
+  /* Main application canvas */
+  --background: oklch(0.9842 0.0034 247.8575);
+
+  /* Default elevated surface */
+  --surface-default: oklch(1 0 0);
+
+  /* Secondary/subtle surface */
+  --surface-muted: oklch(0.9683 0.0069 247.8956);
+
+  /* Stronger neutral surface */
+  --surface-strong: oklch(0.9288 0.0126 255.5078);
+
+  /* Disabled surface */
+  --surface-disabled: oklch(0.9288 0.0126 255.5078);
+
+  /* Interactive hover surface */
+  --surface-hover: oklch(0.9745 0.0079 253.8524);
+
+  /* Selected surface */
+  --surface-selected: oklch(0.9487 0.0149 251.1585);
+
+
+  /* =======================================================
+     TEXT
+     ======================================================= */
+
+  /* Highest emphasis */
+  --text-strong: oklch(0.2077 0.0398 265.7549);
+
+  /* Normal readable text */
+  --text-default: oklch(0.3717 0.0392 257.2870);
+
+  /* Supporting text */
+  --text-muted: oklch(0.5544 0.0407 257.4166);
+
+  /* Disabled / unavailable */
+  --text-disabled: oklch(0.7107 0.0351 256.7878);
+
+  /* Text over dark/colored backgrounds */
+  --text-inverse: oklch(1 0 0);
+
+
+  /* =======================================================
+     PRIMARY
+     Main E-works action color
+     ======================================================= */
+
+  --primary: oklch(0.5568 0.1013 255.9080);
+
+  --primary-hover: oklch(0.4849 0.0859 256.7091);
+
+  --primary-active: oklch(0.4241 0.0697 257.2499);
+
+  --primary-muted: oklch(0.9487 0.0149 251.1585);
+
+  --primary-subtle: oklch(0.9745 0.0079 253.8524);
+
+  --primary-foreground: oklch(1 0 0);
+
+
+  /* =======================================================
+     SECONDARY
+     E-works accent / supporting action
+     ======================================================= */
+
+  --secondary: oklch(0.7610 0.1736 129.5770);
+
+  --secondary-hover: oklch(0.6703 0.1578 130.9595);
+
+  --secondary-active: oklch(0.5547 0.1252 130.5378);
+
+  --secondary-muted: oklch(0.9562 0.0368 122.1171);
+
+  --secondary-subtle: oklch(0.9818 0.0163 121.7609);
+
+  /*
+   * Dark foreground is required because secondary is a
+   * relatively light green.
+   */
+  --secondary-foreground: oklch(0.2077 0.0398 265.7549);
+
+
+  /* =======================================================
+     BORDERS
+     ======================================================= */
+
+  --border-default: oklch(0.8690 0.0198 252.8943);
+
+  --border-muted: oklch(0.9288 0.0126 255.5078);
+
+  --border-strong: oklch(0.7107 0.0351 256.7878);
+
+  --border-disabled: oklch(0.9288 0.0126 255.5078);
+
+  --border-focus: oklch(0.5568 0.1013 255.9080);
+
+
+  /* =======================================================
+     FORM CONTROLS
+     ======================================================= */
+
+  --input: oklch(1 0 0);
+
+  --input-hover: oklch(0.9842 0.0034 247.8575);
+
+  --input-disabled: oklch(0.9683 0.0069 247.8956);
+
+  --input-border: oklch(0.8690 0.0198 252.8943);
+
+  --input-border-hover: oklch(0.7107 0.0351 256.7878);
+
+  --input-border-focus: oklch(0.5568 0.1013 255.9080);
+
+  --ring: oklch(0.5568 0.1013 255.9080);
+
+
+  /* =======================================================
+     STATUS: SUCCESS
+     ======================================================= */
+
+  --success: oklch(0.6271 0.1699 149.2138);
+
+  --success-foreground: oklch(1 0 0);
+
+  --success-subtle: oklch(0.9819 0.0181 155.8263);
+
+
+  /* =======================================================
+     STATUS: WARNING
+     ======================================================= */
+
+  --warning: oklch(0.6658 0.1574 58.3183);
+
+  --warning-foreground: oklch(0.2077 0.0398 265.7549);
+
+  --warning-subtle: oklch(0.9869 0.0214 95.2774);
+
+
+  /* =======================================================
+     STATUS: DESTRUCTIVE
+     ======================================================= */
+
+  --destructive: oklch(0.5771 0.2152 27.3250);
+
+  --destructive-hover: oklch(0.5200 0.2050 27.3250);
+
+  --destructive-active: oklch(0.4700 0.1900 27.3250);
+
+  --destructive-foreground: oklch(1 0 0);
+
+  --destructive-subtle: oklch(0.9705 0.0129 17.3797);
+
+
+  /* =======================================================
+     STATUS: INFO
+     ======================================================= */
+
+  --info: oklch(0.5568 0.1013 255.9080);
+
+  --info-foreground: oklch(1 0 0);
+
+  --info-subtle: oklch(0.9745 0.0079 253.8524);
+
+
+  /* =======================================================
+     SHADCN COMPATIBILITY
+     ======================================================= */
+
+  --foreground: var(--text-strong);
+
+  --card: var(--surface-default);
+  --card-foreground: var(--text-strong);
+
+  --popover: var(--surface-default);
+  --popover-foreground: var(--text-strong);
+
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-muted);
+
+  --accent: var(--primary-subtle);
+  --accent-foreground: var(--primary);
+
+  --border: var(--border-default);
+
+
+  /* =======================================================
+     CHARTS
+     ======================================================= */
+
+  --chart-1: oklch(0.5568 0.1013 255.9080);
+
+  --chart-2: oklch(0.7610 0.1736 129.5770);
+
+  --chart-3: oklch(0.6658 0.1574 58.3183);
+
+  --chart-4: oklch(0.6271 0.1699 149.2138);
+
+  --chart-5: oklch(0.5771 0.2152 27.3250);
+
+
+  /* =======================================================
+     SIDEBAR
+     ======================================================= */
+
+  --sidebar: oklch(1 0 0);
+
+  --sidebar-foreground: var(--text-default);
+
+  --sidebar-foreground-strong: var(--text-strong);
+
+  --sidebar-foreground-muted: var(--text-muted);
+
+  --sidebar-primary: var(--primary);
+
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--primary-subtle);
+
+  --sidebar-accent-foreground: var(--primary);
+
+  --sidebar-border: var(--border-muted);
+
+  --sidebar-ring: var(--ring);
+
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
+  --font-sans:
+    "Inter",
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  --font-display:
+    var(--font-host-grotesk),
+    "Host Grotesk",
+    ui-sans-serif,
+    system-ui,
+    sans-serif;
+
+  --menu: var(--surface-default);
+  --menu-hover: var(--surface-hover);
+  --company-blue: var(--primary);
+  --overlay: oklch(0.2077 0.0398 265.7549 / 0.36);
+  --accent-hover: var(--primary-hover);
+
+  --font-serif:
+    Georgia,
+    Cambria,
+    "Times New Roman",
+    serif;
+
+  --font-mono:
+    "SFMono-Regular",
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  /*
+   * Base radius = 12px
+   *
+   * sm    6px
+   * md    8px
+   * lg   12px
+   * xl   16px
+   * 2xl  20px
+   */
+
+  --radius: 0.75rem;
+
+
+  /* =======================================================
+     SHADOWS
+     ======================================================= */
+
+  --shadow-2xs:
+    0 1px 2px
+    oklch(0.2077 0.0398 265.7549 / 0.03);
+
+  --shadow-xs:
+    0 1px 2px
+    oklch(0.2077 0.0398 265.7549 / 0.05);
+
+  --shadow-sm:
+    0 2px 6px
+    oklch(0.2077 0.0398 265.7549 / 0.07);
+
+  --shadow:
+    0 2px 8px
+    oklch(0.2077 0.0398 265.7549 / 0.08);
+
+  --shadow-md:
+    0 8px 24px
+    oklch(0.2077 0.0398 265.7549 / 0.09);
+
+  --shadow-lg:
+    0 16px 40px
+    oklch(0.2077 0.0398 265.7549 / 0.12);
+
+  --shadow-xl:
+    0 24px 64px
+    oklch(0.2077 0.0398 265.7549 / 0.16);
+
+  --shadow-2xl:
+    0 32px 80px
+    oklch(0.2077 0.0398 265.7549 / 0.20);
+
+
+  /* =======================================================
+     TRACKING / SPACING
+     ======================================================= */
+
+  --tracking-normal: 0em;
+
+  /* Tailwind 4px spacing base */
+  --spacing: 0.25rem;
+}
+
+
+/* =========================================================
+   DARK THEME
+   ========================================================= */
+
+.dark {
+  /* =======================================================
+     CORE SURFACES
+     ======================================================= */
+
+  --background: oklch(0.1770 0.0323 258.6826);
+
+  --surface-default: oklch(0.2077 0.0398 265.7549);
+
+  --surface-muted: oklch(0.2795 0.0368 260.0310);
+
+  --surface-strong: oklch(0.3717 0.0392 257.2870);
+
+  --surface-disabled: oklch(0.2795 0.0368 260.0310);
+
+  --surface-hover: oklch(0.2795 0.0368 260.0310);
+
+  --surface-selected: oklch(0.2816 0.0532 254.7989);
+
+
+  /* =======================================================
+     TEXT
+     ======================================================= */
+
+  --text-strong: oklch(0.9842 0.0034 247.8575);
+
+  --text-default: oklch(0.9288 0.0126 255.5078);
+
+  --text-muted: oklch(0.7107 0.0351 256.7878);
+
+  --text-disabled: oklch(0.5544 0.0407 257.4166);
+
+  --text-inverse: oklch(0.2077 0.0398 265.7549);
+
+
+  /* =======================================================
+     PRIMARY
+     ======================================================= */
+
+  --primary: oklch(0.6320 0.1063 254.9811);
+
+  --primary-hover: oklch(0.6900 0.1000 254.9811);
+
+  --primary-active: oklch(0.7300 0.0900 254.9811);
+
+  --primary-muted: oklch(0.3491 0.0699 255.5915);
+
+  --primary-subtle: oklch(0.2816 0.0532 254.7989);
+
+  --primary-foreground: oklch(0.1770 0.0323 258.6826);
+
+
+  /* =======================================================
+     SECONDARY
+     ======================================================= */
+
+  --secondary: oklch(0.7610 0.1736 129.5770);
+
+  --secondary-hover: oklch(0.8100 0.1600 129.5770);
+
+  --secondary-active: oklch(0.8400 0.1450 129.5770);
+
+  --secondary-muted: oklch(0.3538 0.0691 132.7769);
+
+  --secondary-subtle: oklch(0.2681 0.0479 134.0321);
+
+  --secondary-foreground: oklch(0.1770 0.0323 258.6826);
+
+
+  /* =======================================================
+     BORDERS
+     ======================================================= */
+
+  --border-default: oklch(0.3717 0.0392 257.2870);
+
+  --border-muted: oklch(0.2795 0.0368 260.0310);
+
+  --border-strong: oklch(0.4455 0.0374 257.2808);
+
+  --border-disabled: oklch(0.2795 0.0368 260.0310);
+
+  --border-focus: oklch(0.6320 0.1063 254.9811);
+
+
+  /* =======================================================
+     INPUT
+     ======================================================= */
+
+  --input: oklch(0.2101 0.0318 264.6645);
+
+  --input-hover: oklch(0.2795 0.0368 260.0310);
+
+  --input-disabled: oklch(0.2795 0.0368 260.0310);
+
+  --input-border: oklch(0.3717 0.0392 257.2870);
+
+  --input-border-hover: oklch(0.4455 0.0374 257.2808);
+
+  --input-border-focus: oklch(0.6320 0.1063 254.9811);
+
+  --ring: oklch(0.6320 0.1063 254.9811);
+
+
+  /* =======================================================
+     SUCCESS
+     ======================================================= */
+
+  --success: oklch(0.7000 0.1700 149.2138);
+
+  --success-foreground: oklch(0.1770 0.0323 258.6826);
+
+  --success-subtle: oklch(0.2715 0.0513 154.1234);
+
+
+  /* =======================================================
+     WARNING
+     ======================================================= */
+
+  --warning: oklch(0.7500 0.1500 58.3183);
+
+  --warning-foreground: oklch(0.1770 0.0323 258.6826);
+
+  --warning-subtle: oklch(0.2712 0.0459 73.9908);
+
+
+  /* =======================================================
+     DESTRUCTIVE
+     ======================================================= */
+
+  --destructive: oklch(0.6500 0.2000 27.3250);
+
+  --destructive-hover: oklch(0.7000 0.1900 27.3250);
+
+  --destructive-active: oklch(0.7400 0.1750 27.3250);
+
+  --destructive-foreground: oklch(1 0 0);
+
+  --destructive-subtle: oklch(0.2531 0.0590 22.1902);
+
+
+  /* =======================================================
+     INFO
+     ======================================================= */
+
+  --info: oklch(0.6320 0.1063 254.9811);
+
+  --info-foreground: oklch(0.1770 0.0323 258.6826);
+
+  --info-subtle: oklch(0.2816 0.0532 254.7989);
+
+
+  /* =======================================================
+     SHADCN COMPATIBILITY
+     ======================================================= */
+
+  --foreground: var(--text-strong);
+
+  --card: var(--surface-default);
+  --card-foreground: var(--text-strong);
+
+  --popover: oklch(0.2101 0.0318 264.6645);
+  --popover-foreground: var(--text-strong);
+
+  --muted: var(--surface-muted);
+  --muted-foreground: var(--text-muted);
+
+  --accent: var(--primary-subtle);
+  --accent-foreground: var(--primary);
+
+  --border: var(--border-default);
+
+
+  /* =======================================================
+     CHARTS
+     ======================================================= */
+
+  --chart-1: oklch(0.6320 0.1063 254.9811);
+
+  --chart-2: oklch(0.7610 0.1736 129.5770);
+
+  --chart-3: oklch(0.7500 0.1500 58.3183);
+
+  --chart-4: oklch(0.7000 0.1700 149.2138);
+
+  --chart-5: oklch(0.6500 0.2000 27.3250);
+
+
+  /* =======================================================
+     SIDEBAR
+     ======================================================= */
+
+  --sidebar: oklch(0.2077 0.0398 265.7549);
+
+  --sidebar-foreground: var(--text-default);
+
+  --sidebar-foreground-strong: var(--text-strong);
+
+  --sidebar-foreground-muted: var(--text-muted);
+
+  --sidebar-primary: var(--primary);
+
+  --sidebar-primary-foreground: var(--primary-foreground);
+
+  --sidebar-accent: var(--primary-subtle);
+
+  --sidebar-accent-foreground: var(--primary);
+
+  --sidebar-border: var(--border-muted);
+
+  --sidebar-ring: var(--ring);
+
+
+  /* =======================================================
+     DARK SHADOWS
+     ======================================================= */
+
+  --shadow-2xs:
+    0 1px 2px
+    oklch(0 0 0 / 0.10);
+
+  --shadow-xs:
+    0 1px 2px
+    oklch(0 0 0 / 0.14);
+
+  --shadow-sm:
+    0 2px 6px
+    oklch(0 0 0 / 0.18);
+
+  --shadow:
+    0 2px 8px
+    oklch(0 0 0 / 0.20);
+
+  --shadow-md:
+    0 8px 24px
+    oklch(0 0 0 / 0.24);
+
+  --shadow-lg:
+    0 16px 40px
+    oklch(0 0 0 / 0.28);
+
+  --shadow-xl:
+    0 24px 64px
+    oklch(0 0 0 / 0.34);
+
+  --shadow-2xl:
+    0 32px 80px
+    oklch(0 0 0 / 0.40);
+}
+
+
+/* =========================================================
+   TAILWIND THEME MAPPING
+   ========================================================= */
+
+@theme inline {
+  /* =======================================================
+     STANDARD SHADCN TOKENS
+     ======================================================= */
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+
+  /* =======================================================
+     PRIMARY
+     ======================================================= */
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-active: var(--primary-active);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-subtle: var(--primary-subtle);
+
+
+  /* =======================================================
+     SECONDARY
+     ======================================================= */
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-active: var(--secondary-active);
+  --color-secondary-muted: var(--secondary-muted);
+  --color-secondary-subtle: var(--secondary-subtle);
+
+
+  /* =======================================================
+     TEXT
+     ======================================================= */
+
+  --color-text-strong: var(--text-strong);
+  --color-text-default: var(--text-default);
+  --color-text-muted: var(--text-muted);
+  --color-text-disabled: var(--text-disabled);
+  --color-text-inverse: var(--text-inverse);
+
+
+  /* =======================================================
+     SURFACES
+     ======================================================= */
+
+  --color-surface-default: var(--surface-default);
+  --color-surface-muted: var(--surface-muted);
+  --color-surface-strong: var(--surface-strong);
+  --color-surface-disabled: var(--surface-disabled);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-selected: var(--surface-selected);
+
+
+  /* =======================================================
+     MUTED / ACCENT
+     ======================================================= */
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+
+  /* =======================================================
+     BORDERS
+     ======================================================= */
+
+  --color-border: var(--border);
+  --color-border-default: var(--border-default);
+  --color-border-muted: var(--border-muted);
+  --color-border-strong: var(--border-strong);
+  --color-border-disabled: var(--border-disabled);
+  --color-border-focus: var(--border-focus);
+
+
+  /* =======================================================
+     INPUT
+     ======================================================= */
+
+  --color-input: var(--input);
+  --color-input-hover: var(--input-hover);
+  --color-input-disabled: var(--input-disabled);
+  --color-input-border: var(--input-border);
+  --color-input-border-hover: var(--input-border-hover);
+  --color-input-border-focus: var(--input-border-focus);
+
+  --color-ring: var(--ring);
+
+
+  /* =======================================================
+     STATUS COLORS
+     ======================================================= */
+
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-success-subtle: var(--success-subtle);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-subtle: var(--warning-subtle);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-active: var(--destructive-active);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-subtle: var(--destructive-subtle);
+
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+  --color-info-subtle: var(--info-subtle);
+
+
+  /* =======================================================
+     CHART
+     ======================================================= */
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+
+  /* =======================================================
+     SIDEBAR
+     ======================================================= */
+
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+
+  --color-sidebar-foreground-strong:
+    var(--sidebar-foreground-strong);
+
+  --color-sidebar-foreground-muted:
+    var(--sidebar-foreground-muted);
+
+  --color-sidebar-primary: var(--sidebar-primary);
+
+  --color-sidebar-primary-foreground:
+    var(--sidebar-primary-foreground);
+
+  --color-sidebar-accent: var(--sidebar-accent);
+
+  --color-sidebar-accent-foreground:
+    var(--sidebar-accent-foreground);
+
+  --color-sidebar-border: var(--sidebar-border);
+
+  --color-sidebar-ring: var(--sidebar-ring);
+
+
+  /* =======================================================
+     FONTS
+     ======================================================= */
+
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-serif: var(--font-serif);
+  --font-mono: var(--font-mono);
+
+  --color-menu: var(--menu);
+  --color-menu-hover: var(--menu-hover);
+  --color-company-blue: var(--company-blue);
+  --color-overlay: var(--overlay);
+  --color-accent-hover: var(--accent-hover);
+
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+
+  /* =======================================================
+     SHADOWS
+     ======================================================= */
+
+  --shadow-2xs: var(--shadow-2xs);
+  --shadow-xs: var(--shadow-xs);
+  --shadow-sm: var(--shadow-sm);
+  --shadow: var(--shadow);
+  --shadow-md: var(--shadow-md);
+  --shadow-lg: var(--shadow-lg);
+  --shadow-xl: var(--shadow-xl);
+  --shadow-2xl: var(--shadow-2xl);
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  ::selection {
+    background: var(--primary-muted);
+    color: var(--text-strong);
+  }
+}

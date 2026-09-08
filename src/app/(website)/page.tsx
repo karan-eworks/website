@@ -1,5 +1,7 @@
 import {
 	AboutSection,
+	CtaSection,
+	ProcessSection,
 	ProofSection,
 	ServicesSection,
 	TeamSection,
@@ -19,11 +21,13 @@ export default async function Home() {
 		<HydrateClient>
 			<main className="relative isolate z-10 min-h-screen bg-background text-foreground">
 				<Hero />
-				<ProofSection />
 				<ServicesSection />
 				<WhyChooseUsSection />
+				<ProcessSection />
+				<ProofSection />
 				<AboutSection />
 				<TeamSection />
+				<CtaSection />
 			</main>
 		</HydrateClient>
 	);

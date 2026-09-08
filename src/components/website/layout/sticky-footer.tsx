@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { FooterNavigation } from "@/components/website/layout/FooterNavigation";
@@ -9,16 +8,10 @@ import { Logo } from "@/components/website/layout/Logo";
 
 export function StickyFooter() {
 	return (
-		<footer className="sticky bottom-0 z-0 overflow-hidden bg-[#0d0d0d] text-white">
+		<footer className="overflow-hidden bg-[#0d0d0d] text-white">
 			<div className="mx-auto flex min-h-180 max-w-[1600px] flex-col px-6 pt-16 pb-8 sm:px-10 lg:px-16 lg:pt-24">
 				<div className="grid flex-1 gap-16 lg:grid-cols-[1.2fr_1fr]">
-					<motion.div
-						className="flex max-w-xl flex-col justify-between gap-14"
-						initial={{ opacity: 0, y: 30 }}
-						transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-						viewport={{ once: true, amount: 0.2 }}
-						whileInView={{ opacity: 1, y: 0 }}
-					>
+					<div className="flex max-w-xl flex-col justify-between gap-14">
 						<div>
 							<Link
 								className="inline-flex items-center gap-3 font-semibold text-2xl tracking-tight"
@@ -45,20 +38,10 @@ export function StickyFooter() {
 								size={17}
 							/>
 						</Link>
-					</motion.div>
-					<motion.div
-						className="flex-1"
-						initial={{ opacity: 0, y: 30 }}
-						transition={{
-							duration: 0.7,
-							delay: 0.1,
-							ease: [0.22, 1, 0.36, 1],
-						}}
-						viewport={{ once: true, amount: 0.2 }}
-						whileInView={{ opacity: 1, y: 0 }}
-					>
+					</div>
+					<div className="flex-1">
 						<FooterNavigation />
-					</motion.div>
+					</div>
 				</div>
 				<div className="mt-16 flex flex-col gap-8 border-white/10 border-t pt-8 sm:flex-row sm:items-center sm:justify-between">
 					<FooterSocialLinks />

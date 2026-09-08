@@ -1,4 +1,5 @@
 "use client";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, Menu as MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -23,6 +24,7 @@ const navItemClasses =
 
 export function Header() {
 	const pathname = usePathname();
+	const reducedMotion = Boolean(useReducedMotion());
 	const [openMenu, setOpenMenu] = useState<Menu | null>(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const [mobileMenu, setMobileMenu] = useState<Menu | null>(null);
@@ -142,25 +144,43 @@ export function Header() {
 						{mobileOpen ? <X /> : <MenuIcon />}
 					</IconButton>
 				</div>
-				{openMenu && (
-					<div
-						onMouseEnter={keepMenuOpen}
-						onMouseLeave={delayedClose}
-						role="dialog"
-					>
-						<MegaMenu menu={openMenu} onClose={() => setOpenMenu(null)} />
-					</div>
-				)}
+				<AnimatePresence initial={false}>
+					{openMenu && (
+						<motion.div
+							animate={{ opacity: 1, scale: 1, y: 0 }}
+							className="absolute top-20 left-1/2 z-50 w-[min(1100px,calc(100vw-64px))] -translate-x-1/2 pt-3"
+							exit={
+								reducedMotion
+									? { opacity: 0 }
+									: { opacity: 0, scale: 0.98, y: -8 }
+							}
+							initial={
+								reducedMotion ? false : { opacity: 0, scale: 0.98, y: -8 }
+							}
+							onMouseEnter={keepMenuOpen}
+							onMouseLeave={delayedClose}
+							transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
+						>
+							<MegaMenu menu={openMenu} onClose={() => setOpenMenu(null)} />
+						</motion.div>
+					)}
+				</AnimatePresence>
 			</header>
 
-			{openMenu && (
-				<button
-					aria-label="Close navigation menu"
-					className="fixed inset-x-0 top-20 bottom-0 z-40 cursor-default bg-overlay"
-					onClick={() => setOpenMenu(null)}
-					type="button"
-				/>
-			)}
+			<AnimatePresence>
+				{openMenu && (
+					<motion.button
+						animate={{ opacity: 1 }}
+						aria-label="Close navigation menu"
+						className="fixed inset-x-0 top-20 bottom-0 z-40 cursor-default bg-overlay"
+						exit={{ opacity: 0 }}
+						initial={reducedMotion ? false : { opacity: 0 }}
+						onClick={() => setOpenMenu(null)}
+						transition={{ duration: 0.18, ease: "easeOut" }}
+						type="button"
+					/>
+				)}
+			</AnimatePresence>
 
 			{mobileOpen && (
 				<nav

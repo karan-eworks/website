@@ -18,7 +18,7 @@ export function MegaMenu({
 	return (
 		<div
 			aria-label={`${menu} menu`}
-			className="mega-menu absolute top-[94px] left-1/2 z-50 grid w-[min(1100px,calc(100vw-64px))] -translate-x-1/2 grid-cols-[0.94fr_1fr] bg-menu p-7 text-foreground shadow-2xl"
+			className="mega-menu grid w-full grid-cols-[0.94fr_1fr] bg-menu p-7 text-foreground shadow-2xl"
 			role="dialog"
 		>
 			<article className="overflow-hidden bg-company-blue text-primary-foreground">

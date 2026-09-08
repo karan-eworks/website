@@ -1,5 +1,6 @@
 import { ActionLink } from "@/components/ui/action";
 import { AboutVisual } from "@/components/website/about/about-visual";
+import { TeamSection } from "@/components/website/about/team-section";
 import { about } from "@/data/website/about";
 
 export function AboutPage() {
@@ -29,6 +30,7 @@ export function AboutPage() {
 					</ActionLink>
 				</div>
 			</section>
+			<TeamSection />
 		</main>
 	);
 }

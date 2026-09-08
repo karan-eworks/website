@@ -2,6 +2,7 @@ import {
 	AboutSection,
 	ProofSection,
 	ServicesSection,
+	TeamSection,
 	WhyChooseUsSection,
 } from "@/components/website/home";
 import { Hero } from "@/components/website/home/Hero";
@@ -22,6 +23,7 @@ export default async function Home() {
 				<ServicesSection />
 				<WhyChooseUsSection />
 				<AboutSection />
+				<TeamSection />
 			</main>
 		</HydrateClient>
 	);

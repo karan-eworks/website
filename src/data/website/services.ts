@@ -1,49 +1,49 @@
 export const serviceOfferings = [
 	{
-		id: "website-development",
-		title: "Website Development",
+		id: "digital-presence",
+		title: "Digital Presence",
 		description:
-			"Clear, conversion-focused websites that give your business a stronger digital foundation.",
-		work: ["Strategy", "UX / UI", "Web Development"],
+			"Clear, conversion-focused digital experiences that make your business easier to understand, trust, and choose.",
+		work: ["Strategy", "UX / UI", "Web Experiences"],
 		accent: "blue",
 	},
 	{
-		id: "product-engineering",
-		title: "Product Engineering",
+		id: "digital-products",
+		title: "Digital Products",
 		description:
-			"Reliable digital products and internal tools built around how your business works.",
-		work: ["Product Strategy", "Frontend", "Backend"],
+			"Reliable platforms, applications, and internal tools built around how your business operates and grows.",
+		work: ["Product Strategy", "Applications", "Internal Tools"],
 		accent: "lime",
 	},
 	{
-		id: "seo",
-		title: "SEO",
+		id: "organic-growth",
+		title: "Organic Growth",
 		description:
-			"Structured search visibility that helps the right people discover your business.",
-		work: ["Technical SEO", "Content Strategy", "Search Visibility"],
+			"Search and content systems that help the right people discover your business without relying only on paid reach.",
+		work: ["Technical SEO", "Search Strategy", "Content Discovery"],
 		accent: "navy",
 	},
 	{
-		id: "digital-marketing",
-		title: "Digital Marketing",
+		id: "demand-generation",
+		title: "Demand Generation",
 		description:
-			"Focused campaigns that turn attention into qualified interest and useful momentum.",
-		work: ["Campaigns", "Paid Media", "Growth Strategy"],
+			"Focused campaigns and acquisition systems that turn attention into qualified interest and measurable momentum.",
+		work: ["Campaigns", "Paid Media", "Acquisition"],
 		accent: "lime",
 	},
 	{
-		id: "creative-services",
-		title: "Creative Services",
+		id: "brand-experience",
+		title: "Brand Experience",
 		description:
 			"Visual direction and brand assets that make your business easier to recognize and remember.",
 		work: ["Art Direction", "Brand Systems", "Visual Design"],
 		accent: "blue",
 	},
 	{
-		id: "content-creation",
-		title: "Content Creation",
+		id: "content-communications",
+		title: "Content & Communications",
 		description:
-			"Useful, consistent content that keeps your brand visible and gives your audience reasons to return.",
+			"Useful stories, pages, and communications that build trust and keep your brand relevant across channels.",
 		work: ["Editorial", "Social Content", "Storytelling"],
 		accent: "navy",
 	},

@@ -6,7 +6,7 @@ import { ServiceOffering } from "@/components/website/home/service-offering";
 import { serviceOfferings } from "@/data/website/services";
 
 export function ServicesSection() {
-	const [activeId, setActiveId] = useState("seo");
+	const [activeId, setActiveId] = useState("organic-growth");
 	const reducedMotion = Boolean(useReducedMotion());
 
 	return (
@@ -27,9 +27,9 @@ export function ServicesSection() {
 					What we offer
 				</h2>
 				<p className="mt-8 max-w-2xl text-[var(--text-default)] text-lg leading-8">
-					We bring strategy, technology, marketing, creative, and content
-					together to help ambitious businesses build a stronger foundation and
-					keep growing.
+					We connect digital presence, products, organic growth, demand
+					generation, brand experience, and content around the business outcome
+					that matters.
 				</p>
 			</motion.div>
 

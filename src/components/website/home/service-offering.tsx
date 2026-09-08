@@ -54,7 +54,7 @@ export function ServiceOffering({
 				className={`absolute -right-8 -bottom-12 size-48 rounded-full border-[18px] transition-transform duration-700 sm:size-64 ${accent.shape} ${active ? "rotate-12 scale-110" : "-rotate-12 scale-75"}`}
 			/>
 			<div className="relative z-10 mt-12">
-				<h3 className="max-w-[12ch] font-bold text-4xl leading-none tracking-[-0.05em] sm:text-5xl">
+				<h3 className="max-w-[14ch] font-bold text-4xl leading-none tracking-[-0.05em] sm:text-5xl">
 					{offering.title}
 				</h3>
 				<p className="mt-5 max-w-sm text-base leading-7 opacity-85">

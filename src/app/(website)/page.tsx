@@ -27,7 +27,6 @@ export default async function Home() {
 				<ProofSection />
 				<AboutSection />
 				<TeamSection />
-				<CtaSection />
 			</main>
 		</HydrateClient>
 	);

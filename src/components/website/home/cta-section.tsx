@@ -10,11 +10,11 @@ export function CtaSection() {
 	return (
 		<section
 			aria-labelledby="cta-title"
-			className="mx-auto max-w-[1600px] px-6 py-24 sm:px-10 lg:px-16 lg:py-32"
+			className="absolute top-0 z-10 mx-auto w-full max-w-[1600px] translate-y-[-50%] transform px-6 sm:px-10 lg:px-16"
 			id="contact"
 		>
 			<motion.div
-				className="relative isolate overflow-hidden bg-[var(--foreground)] px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
+				className="relative isolate mx-auto flex min-h-[clamp(30rem,48vw,40rem)] items-center overflow-hidden bg-[var(--foreground)] px-6 py-16 sm:px-12 sm:py-20 lg:px-20 lg:py-24"
 				initial={reducedMotion ? false : { opacity: 0, y: 24 }}
 				transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
 				viewport={{ once: true, amount: 0.2 }}

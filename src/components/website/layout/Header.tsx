@@ -65,7 +65,10 @@ export function Header() {
 						<Link className="transition-colors hover:text-accent" href="#top">
 							Home
 						</Link>
-						<Link className="transition-colors hover:text-accent" href="#top">
+						<Link
+							className="transition-colors hover:text-accent"
+							href="/about-us"
+						>
 							About Us
 						</Link>
 						{(["services", "resources", "company"] as const).map((menu) => (

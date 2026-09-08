@@ -1,4 +1,5 @@
 import {
+	AboutSection,
 	ProofSection,
 	ServicesSection,
 	WhyChooseUsSection,
@@ -20,6 +21,7 @@ export default async function Home() {
 				<ProofSection />
 				<ServicesSection />
 				<WhyChooseUsSection />
+				<AboutSection />
 			</main>
 		</HydrateClient>
 	);

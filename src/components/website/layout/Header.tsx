@@ -1,6 +1,7 @@
 "use client";
 import { ChevronDown, Menu as MenuIcon, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ActionLink, IconButton } from "@/components/ui/action";
 import {
@@ -9,11 +10,26 @@ import {
 } from "@/components/website/layout/header-data";
 import { MegaMenu } from "@/components/website/layout/MegaMenu";
 import { Wordmark } from "@/components/website/layout/Wordmark";
+import { cn } from "@/lib/utils";
+
+const menuPaths: Record<Menu, string> = {
+	services: "/services",
+	resources: "/resources",
+	company: "/company",
+};
+
+const navItemClasses =
+	"relative rounded-md px-3 py-2 transition-colors duration-200 after:absolute after:bottom-1 after:left-3 after:h-0.5 after:w-0 after:bg-primary after:transition-[width] after:duration-300 after:ease-[cubic-bezier(0.16,1,0.3,1)] hover:text-primary hover:after:w-[calc(100%-1.5rem)] focus-visible:text-primary focus-visible:after:w-[calc(100%-1.5rem)] focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2";
 
 export function Header() {
+	const pathname = usePathname();
 	const [openMenu, setOpenMenu] = useState<Menu | null>(null);
 	const [mobileOpen, setMobileOpen] = useState(false);
 	const [mobileMenu, setMobileMenu] = useState<Menu | null>(null);
+	const isActivePath = (path: string) =>
+		path === "/"
+			? pathname === "/"
+			: pathname === path || pathname.startsWith(`${path}/`);
 	const closeTimer = useRef<ReturnType<typeof setTimeout> | undefined>(
 		undefined,
 	);
@@ -62,20 +78,39 @@ export function Header() {
 						aria-label="Main navigation"
 						className="hidden items-center gap-9 font-medium text-[16px] lg:flex"
 					>
-						<Link className="transition-colors hover:text-accent" href="#top">
+						<Link
+							aria-current={isActivePath("/") ? "page" : undefined}
+							className={cn(
+								navItemClasses,
+								isActivePath("/") && "text-primary",
+							)}
+							href="#top"
+						>
 							Home
 						</Link>
 						<Link
-							className="transition-colors hover:text-accent"
+							aria-current={isActivePath("/about-us") ? "page" : undefined}
+							className={cn(
+								navItemClasses,
+								isActivePath("/about-us") && "text-primary",
+							)}
 							href="/about-us"
 						>
 							About Us
 						</Link>
 						{(["services", "resources", "company"] as const).map((menu) => (
 							<button
+								aria-current={
+									isActivePath(menuPaths[menu]) ? "page" : undefined
+								}
 								aria-expanded={openMenu === menu}
 								aria-haspopup="dialog"
-								className="flex items-center gap-1 capitalize transition-colors hover:text-accent"
+								className={cn(
+									"flex items-center gap-1 capitalize",
+									navItemClasses,
+									(openMenu === menu || isActivePath(menuPaths[menu])) &&
+										"text-primary",
+								)}
 								key={menu}
 								onClick={() => showMenu(menu)}
 								onFocus={keepMenuOpen}
@@ -91,10 +126,7 @@ export function Header() {
 						))}
 					</nav>
 					<div className="hidden items-center justify-end gap-6 font-medium text-[16px] lg:flex">
-						<Link
-							className="transition-colors hover:text-accent"
-							href="#contact"
-						>
+						<Link className={navItemClasses} href="#contact">
 							Contact Us
 						</Link>
 						<ActionLink className="h-[50px] px-7" href="#contact">
@@ -136,17 +168,39 @@ export function Header() {
 					className="fixed inset-x-0 top-20 bottom-0 z-50 overflow-y-auto bg-menu px-6 py-6 lg:hidden"
 				>
 					<Link
-						className="block border-border border-b py-5 font-semibold text-xl"
+						aria-current={isActivePath("/") ? "page" : undefined}
+						className={cn(
+							"block border-border border-b py-5 font-semibold text-xl transition-colors hover:text-primary",
+							isActivePath("/") && "text-primary",
+						)}
 						href="#top"
 						onClick={() => setMobileOpen(false)}
 					>
 						Home
 					</Link>
+					<Link
+						aria-current={isActivePath("/about-us") ? "page" : undefined}
+						className={cn(
+							"block border-border border-b py-5 font-semibold text-xl transition-colors hover:text-primary",
+							isActivePath("/about-us") && "text-primary",
+						)}
+						href="/about-us"
+						onClick={() => setMobileOpen(false)}
+					>
+						About Us
+					</Link>
 					{(["services", "resources", "company"] as const).map((menu) => (
 						<div key={menu}>
 							<button
+								aria-current={
+									isActivePath(menuPaths[menu]) ? "page" : undefined
+								}
 								aria-expanded={mobileMenu === menu}
-								className="flex w-full items-center justify-between border-border border-b py-5 font-semibold text-xl capitalize"
+								className={cn(
+									"flex w-full items-center justify-between border-border border-b py-5 font-semibold text-xl capitalize transition-colors hover:text-primary",
+									(mobileMenu === menu || isActivePath(menuPaths[menu])) &&
+										"text-primary",
+								)}
 								onClick={() => setMobileMenu(mobileMenu === menu ? null : menu)}
 								type="button"
 							>
@@ -159,7 +213,7 @@ export function Header() {
 								<div className="border-border border-b bg-secondary px-4 py-2">
 									{menuConfigs[menu].links.map((item) => (
 										<Link
-											className="block py-3.5 text-base"
+											className="block rounded-md px-2 py-3.5 text-base transition-colors hover:text-primary"
 											href={`#${item.toLowerCase().replaceAll(" ", "-")}`}
 											key={item}
 											onClick={() => setMobileOpen(false)}

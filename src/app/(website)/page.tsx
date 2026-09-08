@@ -1,9 +1,12 @@
+import {
+	ProofSection,
+	ServicesSection,
+	WhyChooseUsSection,
+} from "@/components/website/home";
 import { Hero } from "@/components/website/home/Hero";
 import { HydrateClient } from "@/trpc/server";
 
-
 export default async function Home() {
-
 	// const session = await getSession();
 
 	// if (session) {
@@ -12,9 +15,12 @@ export default async function Home() {
 
 	return (
 		<HydrateClient>
-			<main className="relative z-10 isolate min-h-screen bg-background text-foreground">
+			<main className="relative isolate z-10 min-h-screen bg-background text-foreground">
 				<Hero />
-    		</main>
+				<ProofSection />
+				<ServicesSection />
+				<WhyChooseUsSection />
+			</main>
 		</HydrateClient>
 	);
 }

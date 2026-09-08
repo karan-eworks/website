@@ -186,6 +186,93 @@ The main action language is confident and rectangular: the bespoke action links 
 
 The signature hero combines a centered Host Grotesk statement with a rotating editorial scene: a colored grid, cropped human portrait, oversized geometric shapes, an informational message card, and optional metric card. Scenes crossfade and slide on a four-second cycle; reduced-motion users receive the static composition.
 
+### Homepage Component Boundaries
+
+Homepage surfaces are split by visual responsibility and content responsibility rather than collected into one large component. Section-level components own layout and motion for one section; focused visual components own reusable compositions such as avatar clusters; shared copy and image lists live in nearby data modules. The page entrypoint composes sections only.
+
+Keep a component together when it has one clear visual responsibility. Split it when it owns multiple independent sections, repeated content collections, or a reusable visual composition. Avoid creating abstractions for one-off markup.
+
+### Source Architecture
+
+Use this structure as the default boundary for future website work:
+
+```text
+src/
+├── app/
+│   ├── (website)/
+│   │   ├── page.tsx
+│   │   ├── about/page.tsx
+│   │   ├── services/page.tsx
+│   │   ├── services/[slug]/page.tsx
+│   │   ├── work/page.tsx
+│   │   ├── work/[slug]/page.tsx
+│   │   ├── blog/page.tsx
+│   │   ├── blog/[slug]/page.tsx
+│   │   ├── contact/page.tsx
+│   │   └── layout.tsx
+│   ├── (admin)/admin/.gitkeep
+│   ├── (auth)/.gitkeep
+│   ├── api/trpc/[trpc]/route.ts
+│   ├── favicon.ico
+│   ├── globals.css
+│   ├── loading.tsx
+│   ├── not-found.tsx
+│   ├── robots.ts
+│   └── sitemap.ts
+├── components/
+│   ├── website/
+│   │   ├── home/
+│   │   │   ├── hero/
+│   │   │   │   ├── hero.tsx
+│   │   │   │   ├── hero-content.tsx
+│   │   │   │   ├── hero-visual.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── services-section.tsx
+│   │   │   ├── projects-section.tsx
+│   │   │   ├── technologies-section.tsx
+│   │   │   ├── process-section.tsx
+│   │   │   ├── testimonials-section.tsx
+│   │   │   ├── cta-section.tsx
+│   │   │   └── index.ts
+│   │   ├── about/
+│   │   ├── services/
+│   │   ├── projects/
+│   │   ├── blog/
+│   │   └── contact/
+│   ├── navigation/
+│   ├── footer/
+│   └── animations/
+├── shared/
+│   ├── ui/
+│   ├── icons/
+│   ├── typography/
+│   └── feedback/
+├── layouts/
+│   ├── website/
+│   └── index.ts
+├── providers/
+├── hooks/
+├── lib/
+│   ├── animations/
+│   ├── seo/
+│   ├── validation/
+│   └── constants/
+├── utils/
+├── config/
+├── data/
+│   ├── website/
+│   └── index.ts
+├── types/
+│   ├── website/
+│   ├── common.ts
+│   └── index.ts
+├── server/
+├── trpc/
+└── env.js
+```
+
+Routes stay in `app/`; page-specific visual sections stay in `components/website/<surface>/`; shared primitives stay in `shared/`; reusable content collections stay in `data/`; and domain types stay in `types/`. New files should follow the lowercase kebab-case convention shown above.
+
 ## Do's and Don'ts
 
 ### Do:

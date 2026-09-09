@@ -19,7 +19,7 @@ export default async function Home() {
 
 	return (
 		<HydrateClient>
-			<main className="relative isolate z-10 min-h-screen bg-background text-foreground">
+			<main className="relative isolate z-10 flex min-h-screen flex-col gap-28 bg-background text-foreground lg:gap-40">
 				<Hero />
 				<ServicesSection />
 				<WhyChooseUsSection />

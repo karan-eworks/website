@@ -10,7 +10,7 @@ export function WhyChooseUsSection() {
 	return (
 		<section
 			aria-labelledby="why-choose-us-title"
-			className="mx-auto grid max-w-[1600px] gap-20 px-6 py-28 sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:gap-24 lg:px-16 lg:py-40"
+			className="mx-auto grid max-w-[1600px] gap-20 px-6 sm:px-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(420px,1fr)] lg:items-center lg:gap-24 lg:px-16"
 		>
 			<WhyChooseUsVisual />
 

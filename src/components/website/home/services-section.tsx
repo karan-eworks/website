@@ -12,7 +12,7 @@ export function ServicesSection() {
 	return (
 		<section
 			aria-labelledby="services-title"
-			className="mx-auto flex max-w-[1600px] flex-col px-6 py-28 sm:px-10 lg:px-16 lg:py-40"
+			className="mx-auto flex max-w-[1600px] flex-col px-6 sm:px-10 lg:px-16"
 		>
 			<motion.div
 				initial={reducedMotion ? false : { opacity: 0, y: 24 }}

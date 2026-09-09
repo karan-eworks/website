@@ -30,7 +30,7 @@ export function WhyChooseUsVisual() {
 				className="absolute -top-5 right-8 z-10 h-16 w-16 rounded-full bg-[var(--secondary)] will-change-transform sm:h-24 sm:w-24"
 				style={{ y: reducedMotion ? 0 : circleY }}
 			/>
-			<div className="relative aspect-[1.08] overflow-hidden rounded-[1.25rem] bg-[var(--surface-muted)] shadow-[0_18px_48px_oklch(0.2077_0.0398_265.7549_/_0.14)]">
+			<div className="relative aspect-[1.08] overflow-hidden bg-[var(--surface-muted)] shadow-[0_18px_48px_oklch(0.2077_0.0398_265.7549_/_0.14)]">
 				<Image
 					alt={whyChooseUs.images.primary.alt}
 					className="object-cover"

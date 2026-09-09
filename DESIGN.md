@@ -69,7 +69,7 @@ components:
   card:
     backgroundColor: "{colors.surface-default}"
     textColor: "{colors.text-strong}"
-    rounded: "{rounded.xl}"
+    rounded: "0"
     padding: "1.5rem"
   input:
     backgroundColor: "transparent"
@@ -166,7 +166,7 @@ The main action language is confident and rectangular: the bespoke action links 
 - **Secondary / Ghost / Tertiary:** Outline uses a Deep Navy border and transparent background; ghost actions remain transparent and shift toward Signal Blue.
 
 ### Cards / Containers
-- **Corner Style:** Soft `16px` radius for general cards; hero message cards use a crisp, graphic silhouette.
+- **Corner Style:** Square `0` radius for general cards; hero message cards use a crisp, graphic silhouette.
 - **Background:** Surface White over Cool Cloud, with muted surfaces for secondary regions.
 - **Shadow Strategy:** Soft layered shadows; stronger only for overlays.
 - **Border:** Cool Border when a surface needs a defined edge.

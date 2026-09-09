@@ -13,11 +13,11 @@ export function TeamCard({
 }) {
 	return (
 		<motion.article
-			className="group flex h-full flex-col overflow-hidden rounded-[1rem] border border-[var(--border-muted)] bg-[var(--surface-default)] transition-[border-color] duration-300 hover:border-[var(--primary)]/45"
+			className="group flex h-full flex-col overflow-hidden border border-[var(--border-muted)] bg-[var(--surface-default)] transition-[border-color] duration-300 hover:border-[var(--primary)]/45"
 			transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] as const }}
 			whileHover={reducedMotion ? undefined : { y: -6 }}
 		>
-			<div className="relative h-80 overflow-hidden rounded-t-[1rem] bg-[var(--surface-muted)]">
+			<div className="relative h-80 overflow-hidden bg-[var(--surface-muted)]">
 				<Image
 					alt=""
 					aria-hidden="true"

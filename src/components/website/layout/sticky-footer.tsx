@@ -9,7 +9,7 @@ import { CtaSection } from "../home";
 
 export function StickyFooter() {
 	return (
-		<div className="relative mt-50 overflow-visible bg-[#0d0d0d] lg:mt-64">
+		<div className="relative mt-[clamp(22rem,48vw,20rem)] overflow-visible bg-[#0d0d0d] lg:mt-[clamp(28rem,48vw,20rem)]">
 			<CtaSection />
 
 			<footer className="relative overflow-visible text-white">

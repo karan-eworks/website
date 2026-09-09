@@ -43,7 +43,7 @@ export function TeamSection() {
 	return (
 		<section
 			aria-labelledby="teams-title"
-			className="mx-auto max-w-[1600px] px-6 py-28 sm:px-10 lg:px-16 lg:py-40"
+			className="mx-auto max-w-[1600px] px-6 sm:px-10 lg:px-16"
 			id="teams"
 		>
 			<motion.div
